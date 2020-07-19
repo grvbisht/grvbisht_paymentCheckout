@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+    <script>function validateForm() {
+        var fname=document.myform.firstname.value;
+        var lname=document.myform.lastname.value;
+        var gmail=document.myform.gmail.value;
+        var number=document.myform.number.value;
+        var zipcode=document.myform.zipcode.value;
+        var country=document.myform.country.value;
+        var state=document.myform.state.value;
+        var address=document.myform.address.value;
+        var amount=document.myform.amount.value;
+        if (fname==null || fname=="" || lname==null || lname==""){
+            alert("Name can't be blank");
+            return false;
+        }
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(gmail.match(mailformat)==null)
+        {
+           alert("Enter valid email")
+            return false;
+        }
+        var phoneno = /^\d{10}$/;
+        if(number.match(phoneno)==null)
+        {
+            alert("enter valid number");
+            return false;
+        }
+        if(zipcode==null || zipcode=="")
+        {
+            alert("enter valid zipcode");
+            return false;
+        }
+        if(country==null || country=="")
+        {
+            alert("enter country");
+            return false;
+        }
+        if(state==null || state=="")
+        {
+            alert("enter state");
+            return false;
+        }
+        if(address==null || address=="")
+        {
+            alert("enter address");
+            return false;
+        }
+        if(amount==null || amount=="")
+        {
+            alert("enter amount");
+            return false;
+        }
+
+    }
+
+    </script>
+</head>
+<body>
+<h2>ROIIM</h2>
+<div class="container">
+    <form name="myform" method="POST" action="action.php"  onsubmit="return validateForm()">
+        <div class="row">
+            <div class="col-25">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="fname" name="firstname" placeholder="first name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="lname">Last Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="last name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="gmail">Gmail</label>
+            </div>
+            <div class="col-75">
+                <input type="email" id="gmail" name="gmail" placeholder="Gmail">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Country Code</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="country" name="country" placeholder="E.g. US">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="state">State Code</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="statename" name="state" placeholder="E.g. CA ">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="city">City</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="city" name="city" placeholder="City">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="number">Mobile number</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="number" name="number" placeholder="Number">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="zipcode">Zip Code</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="zipcode" name="zipcode" placeholder="Zip Code">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="address">Street</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="address" name="address" placeholder="Street">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="Amount">Amount</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="amount" name="amount" placeholder="Amount">
+            </div>
+        </div>
+<div class="row">
+    <input type="submit" value="Submit">
+</div>
+</form>
+</div>
+
+</body>
+</html>
